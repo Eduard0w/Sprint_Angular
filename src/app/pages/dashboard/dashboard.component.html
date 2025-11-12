@@ -1,1 +1,79 @@
-<p>dashboard works!</p>
+<body>
+    <app-header></app-header>
+    <h1>Dashboard FORD</h1>
+
+    <div class="container">
+        <div class="block escolha">
+            <div class="titulo">
+                <h2>Veículo</h2>
+            </div>
+            <div class="select">
+                <select (change)="trocarImgCar($event.target.value)">
+                    <option value="">Territory</option>
+                    <option value="">Mustang</option>
+                    <option value="">Ranger</option>
+                    <option value="">Bronco Sport</option>
+                </select>
+            </div>
+        </div>
+        <div class="block vendas">
+            <div class="titulo">
+                <h2>Total de Vendas</h2>
+            </div>
+            <div class="uni">
+                <h3>11111</h3>
+                <p>Unid.</p>
+            </div>
+        </div>
+        <div class="block conectados">
+            <div class="titulo">
+                <h2>Conectados</h2>
+            </div>
+            <div class="uni">
+                <h3>11111</h3>
+                <p>Unid.</p>
+            </div>
+        </div>
+        <div class="block update">
+            <div class="titulo">
+                <h2>Update Software</h2>
+            </div>
+            <div class="uni">
+                <h3>11111</h3>
+                <p>Unid.</p>
+            </div>
+        </div>
+    </div>
+    <div class="img">
+        <figure>
+            <img [src]="selectCar" alt="">
+        </figure>
+    </div>
+    <!-- <app-element-car></app-element-car> -->
+    <table>
+        <thead>
+            <th>Código - vin</th>
+            <th>Odômetro</th>
+            <th>Nível de Combustivel</th>
+            <th>Status</th>
+            <th>Lat.</th>
+            <th>Long.</th>
+        </thead>
+        <tbody>
+            <td>12345678099875645</td>
+            <td>1234 Km</td>
+            <td>123%</td>
+            <td>on</td>
+            <td>-12,345678</td>
+            <td>-12,567845</td>
+        </tbody>
+        <tfoot>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tfoot>
+    </table>
+</body>

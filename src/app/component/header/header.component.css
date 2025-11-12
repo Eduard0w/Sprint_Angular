@@ -1,0 +1,18 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1800px;
+    margin: auto;
+    padding: 20px 0 20px 0; 
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+header .logout img {
+    border-radius: 50px;
+}

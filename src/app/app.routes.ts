@@ -9,6 +9,7 @@ export const routes: Routes = [
     { path: '', component: LoginComponent},
     { path: 'Home', component: HomeComponent},
     { path: 'Dashboard', component: DashboardComponent},
+    { path: '**', component: LoginComponent },
 ];
 
 // @NgModule serve para agrupar componentes, serviços e confgurações que pertencem a uma mesma parte da aplicação.
