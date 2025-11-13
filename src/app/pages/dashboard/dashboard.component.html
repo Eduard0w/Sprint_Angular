@@ -8,11 +8,11 @@
                 <h2>Veículo</h2>
             </div>
             <div class="select">
-                <select (change)="trocarImgCar($event.target.value)">
-                    <option value="">Territory</option>
-                    <option value="">Mustang</option>
-                    <option value="">Ranger</option>
-                    <option value="">Bronco Sport</option>
+                <select #meuSelect (change)="trocarImgCar(meuSelect.value)">
+                    <option value="Territory">Territory</option>
+                    <option value="Mustang">Mustang</option>
+                    <option value="Ranger">Ranger</option>
+                    <option value="Bronco Sport">Bronco Sport</option>
                 </select>
             </div>
         </div>
