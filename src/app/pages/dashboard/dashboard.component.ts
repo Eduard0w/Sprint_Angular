@@ -1,23 +1,34 @@
 import { ServiceOneService } from './../../service/service-one.service';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../component/header/header.component';
-import { ElementCarComponent } from '../../component/element-car/element-car.component';
-import { UserService } from '@angular-devkit/build-angular'
+import { Veiculo } from '../../models/veiculo.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [HeaderComponent, ElementCarComponent],
+  imports: [HeaderComponent, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 
 export class DashboardComponent implements OnInit {
+  infosCar: Veiculo[] = [];
 
-  constructor(private userService: UserService) {
+  constructor(private ServiceOneService: ServiceOneService) {  }
 
-  }
+  // Ciclo de vida do componente, ou seja, inicializa sempre que o componente for criado
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.buscarImg();
+  }
+
+  buscarImg(): void {
+    this.ServiceOneService.getImgCar().subscribe((data:any) => {
+      this.infosCar = data;
+      console.log(this.infosCar);
+
+    }, (erro) => {
+      console.log('Erro ao buscar as imagens dos carros: ', erro);
+    });
   }
   // ImgCar = {
   //   territory:'territory.png',

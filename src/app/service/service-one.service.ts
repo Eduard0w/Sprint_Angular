@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http'
+import { Veiculo } from '../models/veiculo.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,7 @@ export class ServiceOneService {
   //injeção de dependência
   constructor(private http: HttpClient) { }
 
-  getImgCar(veiculo: string){
-    this.http.get(this.baseUrl + 'vehicles').forEach((item) => {
-      console.log(item)
-    })
+  getImgCar():Observable<Veiculo[]>{
+    return this.http.get<Veiculo[]>(this.baseUrl + 'vehicles');
   }
 }

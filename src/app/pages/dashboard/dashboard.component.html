@@ -8,7 +8,7 @@
                 <h2>Veículo</h2>
             </div>
             <div class="select">
-                <select #meuSelect (change)="trocarImgCar(meuSelect.value)">
+                <select>
                     <option value="Territory">Territory</option>
                     <option value="Mustang">Mustang</option>
                     <option value="Ranger">Ranger</option>
@@ -46,10 +46,11 @@
     </div>
     <div class="img">
         <figure>
-            <img [src]="selectCar" alt="">
+            <img *ngFor="let item of infosCar" alt="" [src]="item.">
         </figure>
     </div>
     <!-- <app-element-car></app-element-car> -->
+    <!-- Fazer isso ficar grudado em uma posição especifica na tela -->
     <table>
         <thead>
             <th>Código - vin</th>
