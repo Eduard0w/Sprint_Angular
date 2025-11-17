@@ -8,11 +8,15 @@
                 <h2>Veículo</h2>
             </div>
             <div class="select">
-                <select>
-                    <option value="Territory">Territory</option>
+              <!-- O ngModel precisa do FormsModule nos imports para ser usado -->
+                <select [(ngModel)]="selectedVehicleName">
+                    <!-- <option value="Territory">Territory</option>
                     <option value="Mustang">Mustang</option>
                     <option value="Ranger">Ranger</option>
-                    <option value="Bronco Sport">Bronco Sport</option>
+                    <option value="Bronco Sport">Bronco Sport</option> -->
+                    @for(veiculo of vehicles(); track veiculo.id){
+                      <option value="{{veiculo.vehicle}}">{{veiculo.vehicle}}</option>
+                    }
                 </select>
             </div>
         </div>
@@ -46,7 +50,12 @@
     </div>
     <div class="img">
         <figure>
-            <img *ngFor="let item of infosCar" alt="" [src]="item.">
+            <!-- <img *ngFor="let item of infosCar" alt="" [src]=""> -->
+            <img
+              [src]="selectedVehicle()?.img"
+              [alt]="selectedVehicle()?.vehicle || 'Carregando...'"
+            >
+
         </figure>
     </div>
     <!-- <app-element-car></app-element-car> -->
