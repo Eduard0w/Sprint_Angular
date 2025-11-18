@@ -10,10 +10,6 @@
             <div class="select">
               <!-- O ngModel precisa do FormsModule nos imports para ser usado -->
                 <select [(ngModel)]="selectedVehicleName">
-                    <!-- <option value="Territory">Territory</option>
-                    <option value="Mustang">Mustang</option>
-                    <option value="Ranger">Ranger</option>
-                    <option value="Bronco Sport">Bronco Sport</option> -->
                     @for(veiculo of vehicles(); track veiculo.id){
                       <option value="{{veiculo.vehicle}}">{{veiculo.vehicle}}</option>
                     }
@@ -25,7 +21,7 @@
                 <h2>Total de Vendas</h2>
             </div>
             <div class="uni">
-                <h3>11111</h3>
+                <h3>{{selectedVehicle()?.volumetotal}}</h3>
                 <p>Unid.</p>
             </div>
         </div>
@@ -34,7 +30,7 @@
                 <h2>Conectados</h2>
             </div>
             <div class="uni">
-                <h3>11111</h3>
+                <h3>{{selectedVehicle()?.connected}}</h3>
                 <p>Unid.</p>
             </div>
         </div>
@@ -43,7 +39,7 @@
                 <h2>Update Software</h2>
             </div>
             <div class="uni">
-                <h3>11111</h3>
+                <h3>{{selectedVehicle()?.softwareUpdates}}</h3>
                 <p>Unid.</p>
             </div>
         </div>
@@ -69,14 +65,21 @@
             <th>Lat.</th>
             <th>Long.</th>
         </thead>
-        <tbody>
-            <td>12345678099875645</td>
-            <td>1234 Km</td>
-            <td>123%</td>
-            <td>on</td>
-            <td>-12,345678</td>
-            <td>-12,567845</td>
-        </tbody>
+        @if (vehicleTableData(); as data) {
+          <tbody>
+            <td>{{ data.vin }}</td>
+            <td>{{ data.odometro }} Km</td>
+            <td>{{ data.nivelCombustivel }}%</td>
+            <td>{{ data.status }}</td>
+            <td>{{ data.lat }}</td>
+            <td>{{ data.long }}</td>
+          </tbody>
+          } @else {
+          <!-- Estado de carregamento ou erro -->
+          <tbody>
+            <td colspan="6">Carregando dados do veículo...</td>
+          </tbody>
+          }
         <tfoot>
             <td></td>
             <td></td>

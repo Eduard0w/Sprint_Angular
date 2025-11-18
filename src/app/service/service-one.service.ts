@@ -19,6 +19,7 @@ export class ServiceOneService {
   }
 
   getCarData(vin: string): Observable<VeiculoData>{
-    return this.http.get<VeiculoData>(this.baseUrl + 'vehicles/' + vin);
+    // return this.http.get<VeiculoData>(this.baseUrl + 'vehiclesData' + vin );
+    return this.http.post<VeiculoData>(this.baseUrl + 'vehicleData', { vin });
   }
 }

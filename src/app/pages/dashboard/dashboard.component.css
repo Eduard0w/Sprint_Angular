@@ -63,6 +63,7 @@ table {
     text-align: left;
     width: 100%;
     margin-top: 8vh;
+    bottom: 0;
 }
 thead th {
     /* background-color: blue; */
