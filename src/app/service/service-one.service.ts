@@ -22,4 +22,8 @@ export class ServiceOneService {
     // return this.http.get<VeiculoData>(this.baseUrl + 'vehiclesData' + vin );
     return this.http.post<VeiculoData>(this.baseUrl + 'vehicleData', { vin });
   }
+
+  loginHome(nome: string, senha: string){
+    return this.http.post(this.baseUrl + 'login', { nome, senha });
+  }
 }

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
+import { ServiceOneService } from '../../service/service-one.service';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +7,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
+  private loginService = inject(ServiceOneService);
+  ngOnInit(): void {
+    this.loginService.loginHome('user', 'password').subscribe(response => {
+      console.log('Login response:', response);
+    })
+  }
 
-  constructor(private router: Router){}
+  efetuarLogin(nome: string, senha: string) {
 
-  goToHome(){
-    this.router.navigate(['/Home']);
   }
 }
+
