@@ -1,22 +1,33 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ServiceOneService } from '../../service/service-one.service';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit{
-  private loginService = inject(ServiceOneService);
-  ngOnInit(): void {
-    this.loginService.loginHome('user', 'password').subscribe(response => {
-      console.log('Login response:', response);
-    })
-  }
+export class LoginComponent{
+  email: string = '';
+  senha: string = '';
+  mensagemErro: string = '';
 
-  efetuarLogin(nome: string, senha: string) {
+  constructor(private router: Router, private loginService: ServiceOneService){}
 
+  efetuarLogin() {
+    this.loginService.loginHome(this.email, this.senha).subscribe({
+      next: (resposta) => {
+        // Se der certo: salva o token e vai pro dashboard
+        this.loginService.saveToken(resposta);
+        this.router.navigate(['/Home']);
+      },
+      error: (erro) => {
+        // Se der erro: mostra mensagem
+        this.mensagemErro = 'Usuário ou senha incorretos!';
+      }
+    });
   }
 }
 

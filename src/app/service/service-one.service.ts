@@ -9,6 +9,9 @@ import { VeiculoData } from '../models/veiculoData.model';
   providedIn: 'root'
 })
 export class ServiceOneService {
+  saveToken(user: any) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
   baseUrl: string = environment.apiURL;
 
   //injeção de dependência

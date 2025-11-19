@@ -5,6 +5,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     /* backdrop-filter: blur(10px); */
+    display: flex;
 }
 
 .container_main {
@@ -13,7 +14,7 @@ main {
 }
 .container_main .alert .head {
     background-color: rgba(148, 148, 148, 0.596);
-    padding: 10px 0px 10px 10px; 
+    padding: 10px 0px 10px 10px;
     width: 100%;
     border-radius: 10px 10px 0 0 ;
     border-bottom: 1px solid rgba(150, 150, 150, 0.438);
@@ -24,9 +25,9 @@ main {
     border-radius: 10px;
     position: absolute;
     top: 25vh;
-    left: 35vw; 
+    left: 35vw;
     height: 500px;
-    width: 600px; 
+    width: 600px;
     border: 1px solid rgb(58, 58, 58);
     padding: 0;
 }
