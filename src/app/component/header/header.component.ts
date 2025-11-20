@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,22 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  
+
+  constructor(private router: Router) {}
+
+  goTo(route: string) {
+    this.closeSidebar(); // fecha o menu se quiser
+    this.router.navigate([route]);
+  }
+
+  sidebarOpen = signal(false);
+
+  toggleSidebar() {
+    this.sidebarOpen.update(prev => !prev);
+  }
+
+  closeSidebar() {
+    this.sidebarOpen.set(false);
+  }
 }
+
