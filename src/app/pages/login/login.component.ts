@@ -25,6 +25,7 @@ export class LoginComponent {
       next: (resposta) => {
         // Se der certo: salva o token e vai pro dashboard
         this.loginService.saveToken(resposta);
+        localStorage.setItem('logged', 'true');
         this.router.navigate(['/home']);
       },
       error: (erro) => {
