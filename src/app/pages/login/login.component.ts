@@ -31,6 +31,7 @@ export class LoginComponent {
       error: (erro) => {
         // Se der erro: mostra mensagem
         this.mensagemErro = 'Usuário ou senha incorretos!';
+        alert(this.mensagemErro);
       },
     });
   }

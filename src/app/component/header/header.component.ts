@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
 
   constructor(private router: Router) {}
+  isLogout = false;
 
   goTo(route: string) {
     this.closeSidebar(); // fecha o menu se quiser
@@ -24,6 +25,12 @@ export class HeaderComponent {
 
   closeSidebar() {
     this.sidebarOpen.set(false);
+  }
+
+  msgLogout(){
+    if(localStorage.getItem('logged') === 'true'){
+      localStorage.setItem('logged', 'false');
+    }
   }
 }
 

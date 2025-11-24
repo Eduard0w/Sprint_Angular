@@ -83,6 +83,7 @@ h2 {
   max-height: 150px;
   overflow-y: auto;
   z-index: 10;
+  height: 50px;
 }
 
 .autocomplete-list li {
